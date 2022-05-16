@@ -35,6 +35,11 @@ function App() {
         console.log(getLocation)
     }
 
+    let exec = () => {
+      getCurrentLocation();
+      getWeatherData();
+    }
+
     const getWeatherData = async () => {
 
         const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${
@@ -62,15 +67,13 @@ function App() {
 
         setWeather({"currentWeather": currentData, "futureWeather": futureForecast})
 
-
-        console.log(currentData);
     }
 
 
     return (
         <div>
           <Nav />
-            <button onClick={getWeatherData}>CRAZY!!</button>
+            <button onClick={exec}>CRAZY!!</button>
         </div>
     );
 }

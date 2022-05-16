@@ -8,21 +8,25 @@ const DateAndTime = () => {
         setInterval(() => setDateState(new Date()), 30000);
     }, []);
 
-    const dayDate = () => {
-        const dateString = getDateState.toLocaleDateString('en-ZA', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-        });
-    }
 
-    const dayTime = () => {
-        const timeString = getDateState.toLocaleTimeString('en-US', {
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: false
-        });
-    }
+    const dateString = getDateState.toLocaleDateString('en-ZA', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+
+
+    const timeString = getDateState.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false,
+    });
+
+
+    return <div>
+        <p>{timeString}</p>
+        <p>{dateString}</p>
+    </div>
 
 }
 
